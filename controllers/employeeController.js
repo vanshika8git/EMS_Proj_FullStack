@@ -13,23 +13,6 @@ exports.createEmployee = async (req, res) => {
   res.status(201).json(savedEmployee);
 };
 
-// UPDATE employee
-exports.updateEmployee = async (req, res) => {
-  const updatedEmployee = await Employee.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true }
-  );
-
-  res.json(updatedEmployee);
-};
-
-// DELETE employee
-exports.deleteEmployee = async (req, res) => {
-  await Employee.findByIdAndDelete(req.params.id);
-  res.json({ message: "Employee deleted successfully" });
-};
-
 //reset password
 exports.resetPassword = async (req, res) => {
 
@@ -54,3 +37,20 @@ exports.resetPassword = async (req, res) => {
   }
 
 };
+// UPDATE employee
+exports.updateEmployee = async (req, res) => {
+  const updatedEmployee = await Employee.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true }
+  );
+
+  res.json(updatedEmployee);
+};
+
+// DELETE employee
+exports.deleteEmployee = async (req, res) => {
+  await Employee.findByIdAndDelete(req.params.id);
+  res.json({ message: "Employee deleted successfully" });
+};
+
